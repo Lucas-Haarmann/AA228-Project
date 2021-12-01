@@ -7,6 +7,18 @@ from pandas.core.base import NoNewAttributesMixin
 import matplotlib.pyplot as plt
 import time
 
+# Hyperparameters to change (check main.py)
+SIM_SIZE = 40             # no of agent / object position values in range [0, SIM_SIZE-1]
+MAX_V = 8                  # maximum possible velocity value
+
+NUM_ITERS = 10
+DISCOUNT = 0.95
+LR = 0.1
+
+NUM_V = (MAX_V * 4) + 1     # number of possible values for difference in velocity
+NUM_P = (SIM_SIZE * 2) - 1  # number of possible values for difference in position
+STATE_SIZE = NUM_P * NUM_V  # number of possible states
+
 def Q_learning (data, Q, discount, lr, iterations):
     for _ in range(iterations):
         for index, row in data.iterrows():
@@ -16,21 +28,15 @@ def Q_learning (data, Q, discount, lr, iterations):
             reward = row['r']
             curr = Q[s,a]
             Q[s,a] = curr + lr * (reward + discount * np.max(Q[s_prime,:]) - curr)
-    policy = np.argmax(Q, axis = 1)
+    policy = np.argmax(Q, axis=1).astype(int)
     return policy
+
 
 def compute(infile, outfile):
     start = time.time()
     D = pd.read_csv(infile)
-    S, A, discount, lr, iterations = 0, 2, 0.95, 1e-1, 2
-    if (infile == 'small.csv'):
-        S, iterations = 100, 2
-    elif (infile == 'medium.csv'):
-        S, iterations = 10000, 2
-    else:
-        S, iterations = 100000, 35
-    Q = np.zeros((S,A))
-    policy = Q_learning(D, Q, discount, lr, iterations) + 1
+    Q = np.zeros((STATE_SIZE, 3))
+    policy = Q_learning(D, Q, DISCOUNT, LR, NUM_ITERS) + 1
     np.savetxt(outfile,policy)
     taken = time.time() - start
     print("time taken for ",infile," = ",taken," seconds")

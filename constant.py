@@ -1,13 +1,13 @@
 # CONSTANTS FOR QLEARN.PY
 
 # File paths to data
-SMALL_FP = "data/small.csv"
-MEDIUM_FP = "data/small.csv"
-LARGE_FP = "data/large.csv"
+SMALL_FP = "small.csv"
+MEDIUM_FP = "medium.csv"
+LARGE_FP = "large.csv"
 
 # Discount factors
 SMALL_GAMMA = 0.95
-MEDIUM_GAMMA = 1
+MEDIUM_GAMMA = 0.95
 LARGE_GAMMA = 0.95
 
 # Sizes of state spaces
