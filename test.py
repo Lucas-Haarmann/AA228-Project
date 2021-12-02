@@ -38,7 +38,6 @@ def runTest(test_file, policy_file):
             s = s_to_idx(agent_pos - obj_pos, agent_vel - obj_vel)
             # In case of collision
             if obj_pos == agent_pos and t == max_t-1:
-                print('collision')
                 score += constant.COLLISION_COST
                 break
             action = policy[s]
