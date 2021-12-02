@@ -1,21 +1,23 @@
 # CONSTANTS FOR QLEARN.PY
+# SHARED hyperparameters
+SIM_SIZE = 40         # number of positions for object / agent
+MAX_V = 8              # maximum magnitude of velocity that can be achieved by agent or object
 
-# File paths to data
-SMALL_FP = "small.csv"
-MEDIUM_FP = "medium.csv"
-LARGE_FP = "large.csv"
+# SIMULATION hyperparameters
+FUEL_COST = -2          # cost of changing agent velocity
+COLLISION_COST = -5000  # cost of collision
+MIN_T = 10              # min time steps to collision
+MAX_T = 20             # max time steps of simulation
+AVG_V = 2               # mean object velocity
+VAR_V = 2               # std of object velocity
+VAR_X = 8             # std of initial object position
 
-# Discount factors
-SMALL_GAMMA = 0.95
-MEDIUM_GAMMA = 0.95
-LARGE_GAMMA = 0.95
+# QLEARN hyperparameters
+NUM_ITERS = 10
+DISCOUNT = 0.95
+LR = 0.1
 
-# Sizes of state spaces
-SMALL_N_STATES = 100
-MEDIUM_N_STATES = 50000
-LARGE_N_STATES = 312020
-
-# Sizes of action spaces
-SMALL_N_ACTIONS = 4
-MEDIUM_N_ACTIONS = 7
-LARGE_N_ACTIONS = 9
+# Useful constants
+NUM_V = (MAX_V * 4) + 1     # number of possible values for difference in velocity
+NUM_P = (SIM_SIZE * 2) - 1  # number of possible values for difference in position
+STATE_SIZE = NUM_P * NUM_V  # number of possible states
