@@ -40,7 +40,7 @@ def runTest(test_file, policy_file):
             if obj_pos == agent_pos and t == max_t-1:
                 score += constant.COLLISION_COST
                 break
-            action = policy[s]
+            action = policy[s] - 1
             if action == 1:
                 if agent_vel < constant.MAX_V:
                     agent_vel += 1
