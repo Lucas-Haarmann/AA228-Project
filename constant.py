@@ -21,3 +21,4 @@ LR = 0.1
 NUM_V = (MAX_V * 4) + 1     # number of possible values for difference in velocity
 NUM_P = (SIM_SIZE * 2) - 1  # number of possible values for difference in position
 STATE_SIZE = NUM_P * NUM_V  # number of possible states
+ACTION_SIZE = 3             # number of possible actions
