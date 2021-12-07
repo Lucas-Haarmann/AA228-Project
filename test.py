@@ -55,7 +55,6 @@ def simulate(policy_file):
                     agent_vel += 1
                 score += constant.FUEL_COST
             elif action == 2:
-                acted = True
                 if agent_vel > -constant.MAX_V:
                     agent_vel -= 1
                 score += constant.FUEL_COST

@@ -1,12 +1,6 @@
-import random
-import sys
-import math
 import numpy as np
 import pandas as pd
-from pandas.core.base import NoNewAttributesMixin
-import matplotlib.pyplot as plt
 import time
-import constant
 import constant
 
 def Q_learning (data, Q, discount, lr, iterations):

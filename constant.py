@@ -13,7 +13,7 @@ VAR_V = 2               # std of object velocity
 VAR_X = 8             # std of initial object position
 
 # QLEARN hyperparameters
-NUM_ITERS = 10
+NUM_ITERS = 20
 DISCOUNT = 0.95
 LR = 0.1
 

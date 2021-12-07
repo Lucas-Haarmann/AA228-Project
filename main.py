@@ -9,6 +9,9 @@ AVG_V = constant.AVG_V
 VAR_V = constant.VAR_V
 VAR_X = constant.VAR_X
 
+'''
+Generate samples
+'''
 def generateSamples(num_objects, filename):
     samples = []
     for i in range(num_objects):
