@@ -123,8 +123,7 @@ def s_to_idx(sep, vel):
 def main():
     #generateTest(10000, 'test.csv')
     #simulate('medium.policy')
-    files = ['small.policy', 'medium.policy', 'large.policy',
-             'small2.policy', 'medium2.policy', 'large2.policy']
+    files = ['small2_maxlikelihood.policy', 'medium2_maxlikelihood.policy', 'large2_maxlikelihood.policy']
     for file in files:
         runTest('test.csv', file)
 

@@ -73,7 +73,7 @@ def value_iteration(R, T, discount):
             transition.reshape(constant.STATE_SIZE)
             chance[a] = R[s,a] + discount*np.dot(transition,U)
         policy[s] = np.argmax(chance)
-    return policy
+    return policy + 1
 
 
 
